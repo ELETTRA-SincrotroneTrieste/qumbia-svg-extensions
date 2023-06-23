@@ -43,47 +43,30 @@ TARGET = $${libname}$${QTVER_SUFFIX}
 
 packagesExist(qumbia-svg) {
   PKGCONFIG += qumbia-svg
-    message("qusvgexample: found module qumbia-svg ")
+    message("qusvg_extensions: found module qumbia-svg ")
 } else {
-    error("qusvgexample: module qumbia-svg is required - check PKG_CONFIG_PATH")
+    error("qusvg_extensions: module qumbia-svg is required - check PKG_CONFIG_PATH")
 }
 
-packagesExist(qgraphicsplot) {
-  PKGCONFIG += qgraphicsplot
-    message("qusvgexample: found module qgraphicsplot ")
+packagesExist(cumbia-qtcontrols-ng) {
+  PKGCONFIG += cumbia-qtcontrols-ng
+    message("qusvg_extensions: found module cumbia-qtcontrols-ng ")
 } else {
-    error("qusvgexample: module qgraphicsplot is required - check PKG_CONFIG_PATH")
+    error("qusvg_extensions: module cumbia-qtcontrols-ng is required - check PKG_CONFIG_PATH")
 }
 
 # RESOURCES +=
 
-SOURCES += src/main.cpp \
-                src/qusvg_extensions.cpp \
-                src/qusvgitemplot.cpp
+SOURCES +=  src/qusvgitemplot.cpp
 
-PUBLICHEADERS += src/qusvg_extensions.h \
+HEADERS += \
     src/qusvgitemplot.h
 
-# cuuimake runs uic
-# FORMS    = src/qusvg_extensions.ui
-# but we need to include ui_xxxx.h file amongst the headers
-# in order to be recompiled when it changes
-#
-
-HEADERS += $${PUBLICHEADERS}
-    ui/ui_qusvg_extensions.h
-
-# - ui: where to find cuuimake ui_*.h files
-#   since FORMS is not used
-# - src: where to find headers included by
-#   ui_*.h (e.g. for custom widget promoted
-#   from the Qt designer)
-#
-INCLUDEPATH += ui src
+INCLUDEPATH +=  src
 
 TARGET = qusvg-extensions
 
-inc.files = $${PUBLICHEADERS}
+inc.files = $${HEADERS}
 inc.path = $${INC_DIR}
 
 target.path=$${LIB_DIR}
@@ -138,6 +121,7 @@ QMAKE_PKGCONFIG_LIBDIR = $${target.path}
 QMAKE_PKGCONFIG_INCDIR = $${inc.path}
 QMAKE_PKGCONFIG_VERSION = $${VERSION}
 QMAKE_PKGCONFIG_DESTDIR = pkgconfig
+QMAKE_PKGCONFIG_REQUIRES = qumbia-svg, cumbia-qtcontrols-ng
 
 pkgconfig_f.path = $${LIB_DIR}/pkgconfig
 pkgconfig_f.files = pkgconfig/$${libname}.pc
