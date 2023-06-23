@@ -50,12 +50,12 @@ QVariant QuSvgItemPlot::itemChange(GraphicsItemChange change, const QVariant &va
 
 void QuSvgItemPlot::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    qDebug() << __PRETTY_FUNCTION__ << "boundingRect" << boundingRect() << "option.rect" << option->rect;
-    QPen p1(Qt::yellow);
-    p1.setStyle(Qt::DashDotDotLine);
-    p1.setWidthF(1.5);
-    painter->setPen(p1);
-    painter->drawRect(boundingRect());
-    painter->setPen(Qt::blue);
-    painter->drawRoundedRect(d->plot->boundingRect(), 5, 5);
+//    qDebug() << __PRETTY_FUNCTION__ << "boundingRect" << boundingRect() << "option.rect" << option->rect;
+//    QPen p1(Qt::yellow);
+//    p1.setStyle(Qt::DashDotDotLine);
+//    p1.setWidthF(1.5);
+//    painter->setPen(p1);
+//    painter->drawRect(boundingRect());
+//    painter->setPen(Qt::blue);
+//    painter->drawRoundedRect(d->plot->boundingRect(), 5, 5);
 }
