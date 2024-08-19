@@ -3,7 +3,17 @@ isEmpty(CUMBIA_ROOT) {
 }
 include($${CUMBIA_ROOT}/include/quapps/quapps.pri)
 
-CONFIG += debug
+isEmpty(buildtype) {
+        buildtype = release
+} else {
+    equals(buildtype, debug) {
+        message("")
+        message("debug build")
+        message("")
+    }
+}
+
+CONFIG += $${buildtype}
 
 CONFIG += link_pkgconfig
 PKGCONFIG += qgraphicsplot
